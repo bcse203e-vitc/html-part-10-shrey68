@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table Generator</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        fieldset {
+            width: 300px;
+            margin: 20px 0;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Multiplication Table Generator</h1>
+    <fieldset>
+        <legend>Enter a Number</legend>
+        <label for="numberInput">Number: </label>
+        <input type="number" id="numberInput" placeholder="Enter a number" required>
+        <button onclick="generateTable()">Generate Table</button>
+    </fieldset>
+
+
+    <table id="multiplicationTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>Multiplier</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        function generateTable() {
+            const number = document.getElementById("numberInput").value;
+            const tableBody = document.getElementById("multiplicationTable").getElementsByTagName('tbody')[0];
+
+            if (number === '' || number <= 0) {
+                alert("Please enter a valid number greater than 0");
+                return;
+            }
+
+            tableBody.innerHTML = '';
+
+          
+            for (let i = 1; i <= 10; i++) {
+                const row = tableBody.insertRow();
+              
+                const cell1 = row.insertCell(0);
+                cell1.textContent = `${number} x ${i}`;
+                
+                const cell2 = row.insertCell(1);
+                cell2.textContent = number * i;
+            }
+
+        
+            document.getElementById("multiplicationTable").style.display = 'table';
+        }
+    </script>
+
+</body>
+</html>
