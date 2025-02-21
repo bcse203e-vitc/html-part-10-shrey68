@@ -1,1 +1,39 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+</head>
+<body>
+    <h1>Guess the Number Game</h1>
+    <p>Try to guess the number between 1 and 50!</p>
+    <input type="number" id="guess" placeholder="Enter your guess" />
+    <button onclick="guessNumber()">Submit Guess</button>
+    <p id="message"></p>
+
+    <script>
+        const secretNumber = Math.floor(Math.random() * 50) + 1;
+        
+        function guessNumber() {
+            let guess = document.getElementById('guess').value;
+            let message = document.getElementById('message');
+       
+            if (guess < 1 || guess > 50 || isNaN(guess)) {
+                message.textContent = "Please enter a valid number between 1 and 50.";
+                return;
+            }
+            while (true) {
+                if (guess == secretNumber) {
+                    message.textContent = "Congratulations! You've guessed the right number!";
+                    break; 
+                } else {
+                    message.textContent = "Wrong guess, try again!";
+                    break; 
+                }
+            }
+        }
+    </script>
+</body>
+</html>
