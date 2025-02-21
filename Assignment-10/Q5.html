@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Theme Switcher</title>
+    <style>
+        body {
+            background-color: #fff;
+            color: #000;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s, font-size 0.3s;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ccc;
+        }
+
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        body.dark-mode button {
+            background-color: #444;
+            color: #fff;
+        }
+
+        body.dark-mode button:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Theme Switcher: Dark Mode / Light Mode</h1>
+
+    <div class="button-container">
+        <button id="darkModeButton">Dark Mode</button>
+        <button id="lightModeButton">Light Mode</button>
+    </div>
+
+    <script>
+       
+        const darkModeButton = document.getElementById('darkModeButton');
+        const lightModeButton = document.getElementById('lightModeButton');
+
+       
+        darkModeButton.addEventListener('click', function() {
+            document.body.classList.add('dark-mode');
+        });
+
+        lightModeButton.addEventListener('click', function() {
+            document.body.classList.remove('dark-mode');
+        });
+    </script>
+
+</body>
+</html>
